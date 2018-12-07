@@ -18,7 +18,7 @@ App({
         resolve(ret)
       })
     })
-  },
+  }, 
   downloadImg(arr, i, ret, success) {
     let that = this
     wx.downloadFile({
