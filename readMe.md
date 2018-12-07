@@ -41,6 +41,7 @@
 	})
 
 3.canvas_draw 创建画所需要的data
+
 	let params = {
   canvasId: 'combinCanvas', //页面上canvas的canvas-id
   width: 622,//canvas的宽
@@ -77,6 +78,7 @@
 
 
 4.用我们引入的库 开始作画 具体想要知道的流程。可以自己去研究一下
+
 	 idraw.draw(params, function(res) {
 		//这个res 就是生成的图片的本地路径
 		//我们把他保存下来
@@ -89,6 +91,7 @@
 
 
 5. saveImgFile 保存本地
+
 	因为这个是本地临时资源。。如果直接保存，那么在模拟器是ok的。。但是真机就会报错
 	所以。我们需要把这个本地临时资源发送到服务器，服务器临时保存，把地址返回过来。然后我们再下载下来
 	然后调用wx.saveImageToPhotosAlbum 去保存图片
