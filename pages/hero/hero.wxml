@@ -1,0 +1,51 @@
+<!--pages/hero/hero.wxml-->
+<!-- 个人中心 -->
+<view class='section'>
+  <image class='logo active' mode='widthFix' src='/common/images/logo.png'></image>
+  <view class='person-box'>
+    <image class='person-head' mode='widthFix' src='/common/images/person-head.png'></image>
+    <view class='head-img'>
+      <image class='head-icon' src='/common/images/head-icon.png'></image>
+      <image class='head' src='{{userInfo.Avatar}}'></image>
+    </view>
+    <view class='desc'>{{userInfo.RegionName}} {{userInfo.Name}}</view>
+    <view class='text-box  tc'>
+      <view class='text'>羽翼总数{{userInfo.FriendCount + userInfo.RegionCount}}片</view>
+      <view class='text'>好友贡献{{userInfo.FriendCount}}片</view>
+      <view class='text'>区域贡献{{userInfo.RegionCount}}片</view>
+    </view>
+  </view>
+  <view class='txt-box tc'>
+    <view class='txt1'>最新任务</view>
+    <view class='txt2'>12/12~12/14 日 完成
+      <text class='big'>3</text>天连续分享打开</view>
+    <image class='mascot' src='/common/images/{{userInfo.ShareCount+1}}.png' mode='widthFix'></image>
+    <button class='download' hover-class='none' open-type="{{openSetting}}" bindopensetting="opensetting" bind:tap="getMinAppCode">
+      <image src='/common/images/load.png' style='width:100%;' mode='widthFix'></image>
+    </button>
+  </view>
+</view>
+
+<!-- 分享生成图片 -->
+<view class='section imgload' >
+  <canvas canvas-id="combinCanvas"></canvas>
+  <!-- <image class='bg' src='/common/images/BG2.png'></image>
+  <view class='share'>
+    <image class='logo' mode='widthFix' src='/common/images/logo.png'></image>
+    <image class='bg' src='/common/images/BG4.png'></image>
+    <view class='share-inner '>
+      <view class='head-img '>
+        <image class='head-icon' src='/common/images/head-icon.png'></image>
+        <image class='head' src='{{userInfo.avatarUrl}} '></image>
+      </view>
+      <view class='desc'>{{userInfo.RegionName}} {{userInfo.nickName}}</view>
+      <view class='desc txt '>全球微笑天使</view>
+      <image class='icon' mode='widthFix' src='/common/images/icon.png '></image>
+      <view class='txt-small tc'>
+        <text>扫一扫识别小程序</text>
+        <text>测一测你是哪一种小天使</text>
+      </view>
+      <image class='code' wx:if="{{codeSrc}}" src='{{codeSrc}}' mode='widthFix'></image>
+    </view>
+  </view> -->
+</view>

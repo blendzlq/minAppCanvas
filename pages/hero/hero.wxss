@@ -1,0 +1,30 @@
+/* pages/hero/hero.wxss */
+@import '../index/index.wxss';
+
+.imgload{
+  opacity: 0;
+  transform: translateY(2000rpx);
+}
+
+.text-box {
+  position: absolute;
+  bottom: 20rpx;
+  width: 100%;
+}
+
+.text-box .text {
+  font-size: 24rpx;
+  color: #fff;
+  background: #6d4cec;
+  margin-bottom: 6rpx;
+  padding: 6rpx 0;
+}
+
+canvas {
+  position: absolute;
+  left: -750px;
+  top: 0;
+  width: 750px;
+  height: 1218px;
+  visibility: hidden;
+}
