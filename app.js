@@ -8,7 +8,7 @@ App({
       title: str,
       duration: time,
       icon: 'none'
-    })
+    }) 
   },
   // 下载一个网络图片列表.返回一个本地路径图片列表
   downloadImgList(list) {
