@@ -99,36 +99,37 @@
 	然后调用wx.saveImageToPhotosAlbum 去保存图片
 
 	至于这块权限的问题。后续再讲。 或者你看看我的hero内的文件吧
-	
+
 	var $this = this;
 	let SessionKey = wx.getStorageSync('SessionKey')
 	wx.uploadFile({
-	url: app.domainName + '/handler/UploadFile.ashx?method=SynthesisImage&SessionKey=' + SessionKey,
-	filePath: imgSrc,
-	name: "file",
-	success(res) {
-	let data = JSON.parse(res.data);
-	wx.downloadFile({
-	  url: app.domainName + data.result,
-	  success: function(res) {
-	    wx.hideLoading()
-	    wx.saveImageToPhotosAlbum({
-	      filePath: res.tempFilePath,
-	      success: function(data) {
-	        wx.showToast({
-	          title: "已保存"
-	        })
-	      },
-	      fail: function(err) {
-	        if (err.errMsg == "saveImageToPhotosAlbum:fail auth deny") {
-	          app.toast('你未开启图片授权')
-	          $this.setData({
-	            openSetting: "openSetting"
-	          });
-	        }
-	      }
-	    });
-	  }
-	});
-	}
+		url: app.domainName + '/handler/UploadFile.ashx?method=SynthesisImage&SessionKey=' + SessionKey,
+		filePath: imgSrc,
+		name: "file",
+		success(res) {
+			//上传文件回来的res 需要parse下
+			let data = JSON.parse(res.data);
+			wx.downloadFile({
+			  url: app.domainName + data.result,
+			  success: function(res) {
+			    wx.hideLoading()
+			    wx.saveImageToPhotosAlbum({
+			      filePath: res.tempFilePath,
+			      success: function(data) {
+			        wx.showToast({
+			          title: "已保存"
+			        })
+			      },
+			      fail: function(err) {
+			        if (err.errMsg == "saveImageToPhotosAlbum:fail auth deny") {
+			          app.toast('你未开启图片授权')
+			          $this.setData({
+			            openSetting: "openSetting"
+			          });
+			        }
+			      }
+			    });
+			  }
+			});
+		}
 	})
